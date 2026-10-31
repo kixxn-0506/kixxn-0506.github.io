@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>키링팬스</title>
+<meta name="description" content="키링팬스 — for Kixxn Lover">
+<meta property="og:title" content="키링팬스">
+<meta property="og:description" content="for Kixxn Lover">
+<meta name="theme-color" content="#121110">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<style>
+  /* 키링팬스(앱스크립트 웹 앱)를 화면 전체에 띄우는 액자. 이렇게 넣으면 구글 안내 띠가 나오지 않는다. */
+  html, body { margin: 0; height: 100%; background: #121110; overflow: hidden; }
+  iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+</style>
+</head>
+<body>
+<iframe id="app" title="키링팬스" allow="clipboard-write; fullscreen; autoplay"></iframe>
+<script>
+  // 키링팬스 웹 앱 주소 (앱스크립트 → 배포 → 배포 관리 → 웹 앱 URL). 주소가 바뀌면 여기만 고친다.
+  var APP = "https://script.google.com/macros/s/AKfycbyW8NqdQeKZHxqhm4ksOmibtdp7ZVYr4FAbtFrepe980QYbN3ZMx9APAm_P7MmsYjAF/exec";
+  // 이 페이지 주소 끝의 #폴더ID 는 그 폴더를 바로 여는 링크로 넘긴다
+  var folder = decodeURIComponent(location.hash.slice(1));
+  document.getElementById("app").src = APP + (folder ? "?folder=" + encodeURIComponent(folder) : "");
+</script>
+</body>
+</html>
